@@ -43,7 +43,7 @@ export const addLeaderboardEntry = (req: Request, res: Response) => {
     const leaderboard = JSON.parse(fs.readFileSync(LEADERBOARD_FILE, "utf8"));
     const lowestScore = leaderboard[leaderboard.length - 1].score;
 
-    if (score < lowestScore) {
+    if (leaderboard.length >= LEADERBOARD_LIMIT && score < lowestScore) {
       console.log("Score is too low to be added to leaderboard.");
       res.status(400).send("Your score is too low. Try again!");
       return;
@@ -60,8 +60,8 @@ export const addLeaderboardEntry = (req: Request, res: Response) => {
 
     fs.writeFileSync(LEADERBOARD_FILE, JSON.stringify(limitedLeaderboard));
 
-    // res.json(limitedLeaderboard);
-    res.status(200).send("Score added to leaderboard !");
+    res.json(limitedLeaderboard);
+    // res.status(200).send("Score added to leaderboard !");
   } catch (err) {
     res.status(500).send("Server error");
   }
