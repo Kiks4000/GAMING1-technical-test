@@ -33,14 +33,23 @@ export const getLeaderboard = (req: Request, res: Response) => {
 export const addLeaderboardEntry = (req: Request, res: Response) => {
   try {
     const { name, score } = req.body;
+
     if (!name || !score) {
+      console.log("Missing name or score in request body");
       res.status(400).send("Missing name or score in request body");
+      return;
     }
 
     const leaderboard = JSON.parse(fs.readFileSync(LEADERBOARD_FILE, "utf8"));
+    const lowestScore = leaderboard[leaderboard.length - 1].score;
+
+    if (leaderboard.length >= LEADERBOARD_LIMIT && score < lowestScore) {
+      console.log("Score is too low to be added to leaderboard.");
+      res.status(400).send("Your score is too low. Try again!");
+      return;
+    }
 
     leaderboard.push({ name, score });
-
     console.log("Leaderboard updated !");
 
     leaderboard.sort(
@@ -52,8 +61,8 @@ export const addLeaderboardEntry = (req: Request, res: Response) => {
     fs.writeFileSync(LEADERBOARD_FILE, JSON.stringify(limitedLeaderboard));
 
     res.json(limitedLeaderboard);
+    // res.status(200).send("Score added to leaderboard !");
   } catch (err) {
-    console.error(err);
     res.status(500).send("Server error");
   }
 };
