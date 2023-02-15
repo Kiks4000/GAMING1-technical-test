@@ -1,0 +1,25 @@
+@import "../../style/variable.module.scss";
+
+button {
+  background-color: $bg-color;
+  outline: 1px solid $brown;
+  border: none;
+  border-radius: 5px;
+  color: $white;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: $regular-font;
+  padding: 1.5rem 4rem;
+  margin: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s linear;
+
+  &:hover {
+    background-color: $brown;
+  }
+
+  &:focus {
+    outline: 1px solid $brown;
+  }
+}

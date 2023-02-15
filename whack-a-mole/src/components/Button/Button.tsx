@@ -1,9 +1,15 @@
 import React from "react";
 
-function Button() {
+interface ButtonProps {
+  onClick: any;
+  className: string;
+  text: string;
+}
+
+function Button(props: ButtonProps) {
   return (
-    <button className="button">
-      <span className="button__text">Start</span>
+    <button className={props.className} onClick={props.onClick}>
+      {props.text}
     </button>
   );
 }

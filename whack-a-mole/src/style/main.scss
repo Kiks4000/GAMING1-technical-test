@@ -1,5 +1,9 @@
 @import "./settings.module.scss";
 @import "./variable.module.scss";
+@import "../components/Button/Button.module.scss";
+@import "../components/PlayerNameModal/PlayerNameModal.module.scss";
+@import "../pages/Home/Home.module.scss";
+@import "../pages/Leaderboard/Leaderboard.module.scss";
 
 body {
   background-color: $bg-color;
