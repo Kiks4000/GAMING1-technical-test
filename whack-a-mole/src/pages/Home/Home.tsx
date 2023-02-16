@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Button from "../../components/Button/Button";
+import Button from "../../components/Button";
 import PlayerNameModal from "../../components/PlayerNameModal";
 import { useNavigate } from "react-router-dom";
-import { setScore, setName } from "../../reducers/game";
-import { store } from "../../store";
 
 function Home() {
   const navigate = useNavigate();

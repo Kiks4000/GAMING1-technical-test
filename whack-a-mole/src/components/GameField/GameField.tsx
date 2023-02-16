@@ -7,6 +7,9 @@ import backgroundImage from "../../assets/images/Background.jpg";
 import holeImage from "../../assets/images/Hole.png";
 import moleImage from "../../assets/images/Mole.png";
 
+import Cursor from "../../utils/Cursor";
+import hammerImage from "../../assets/images/Hammer.png";
+
 function GameField() {
   const dispatch = useDispatch();
   const score = store.getState().game.score;
@@ -48,6 +51,7 @@ function GameField() {
         backgroundPosition: `center center`,
       }}
     >
+      <Cursor imageSrc={hammerImage} />
       <div className="hole-container">
         {[...Array(12)].map((_, index) => {
           const isMolePosition = index + 1 === molePosition;

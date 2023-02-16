@@ -13,10 +13,6 @@
     grid-row-gap: 5rem;
     align-items: self-end;
 
-    .game-field__mole {
-      cursor: pointer;
-    }
-
     .game-field__hole,
     .game-field__mole {
       align-self: last baseline;
