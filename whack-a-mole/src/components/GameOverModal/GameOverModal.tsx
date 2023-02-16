@@ -11,14 +11,14 @@ function GameOverModal() {
   const name = store.getState().game.name || "Player 1";
   const score = store.getState().game.score || 1;
 
-  async function handleHome() {
+  async function handleHome(): Promise<void> {
     await postLeaderboard({ name, score });
     store.dispatch(setScore(0));
     store.dispatch(setName(""));
     navigate("/");
   }
 
-  async function handleLeaderboard() {
+  async function handleLeaderboard(): Promise<void> {
     await postLeaderboard({ name, score });
     store.dispatch(setScore(0));
     store.dispatch(setName(""));
@@ -31,10 +31,14 @@ function GameOverModal() {
         <h1 className="modal-title">Game Over {name ? name : "Player 1"}</h1>
         <p className="modal-text">Your score is {score}</p>
         <div className="modal-btn-container">
-          <Button onClick={handleHome} className={""} text={"HOME"} />
+          <Button
+            onClick={handleHome}
+            className={"gameOver-home-btn"}
+            text={"HOME"}
+          />
           <Button
             onClick={handleLeaderboard}
-            className={""}
+            className={"gameOver-leaderboard-btn"}
             text={"LEADERBOARD"}
           />
         </div>

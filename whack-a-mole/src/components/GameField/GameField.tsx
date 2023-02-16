@@ -3,25 +3,25 @@ import { useDispatch } from "react-redux";
 import { setScore } from "../../reducers/game";
 import { store } from "../../store";
 
+import Cursor from "../../utils/Cursor";
+
 import backgroundImage from "../../assets/images/Background.jpg";
 import holeImage from "../../assets/images/Hole.png";
 import moleImage from "../../assets/images/Mole.png";
-
-import Cursor from "../../utils/Cursor";
 import hammerImage from "../../assets/images/Hammer.png";
 
 function GameField() {
-  const dispatch = useDispatch();
-  const score = store.getState().game.score;
-
   const [molePosition, setMolePosition] = useState(0);
   const [moleIsVisible, setMoleIsVisible] = useState(false);
 
-  const handleMoleClick = () => {
+  const dispatch = useDispatch();
+  const score = store.getState().game.score;
+
+  const handleMoleClick = (): void => {
     dispatch(setScore(score + 10));
   };
 
-  const visibleMole = () => {
+  const visibleMole = (): any => {
     return (
       <div
         className="game-field__mole"
@@ -34,7 +34,7 @@ function GameField() {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval = setInterval((): void => {
       setMolePosition(Math.floor(Math.random() * 12) + 1);
       setMoleIsVisible(true);
     }, 1000);

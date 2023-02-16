@@ -78,5 +78,4 @@ LEADERBOARD_LIMIT=10
 
 ### Frontend -
 
-1. Go to the frontend folder "whack-a-mole"
-2. Run `npm test` to run the tests
+1. Unfortunatlly, I didn't have time to write the tests for the frontend yet

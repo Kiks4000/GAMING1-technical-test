@@ -6,12 +6,11 @@ import { getLeaderboard, Leaderboard } from "../../api/routes";
 
 function LeaderboardPage() {
   const [leaderboard, setLeaderboard] = React.useState([] as Leaderboard[]);
+  const [showModal, setShowModal] = React.useState<boolean>(false);
 
   const navigate = useNavigate();
 
-  const [showModal, setShowModal] = React.useState<boolean>(false);
-
-  const handleModal = () => {
+  const handleModal = (): void => {
     setShowModal(!showModal);
   };
 
@@ -57,7 +56,11 @@ function LeaderboardPage() {
             navigate("/");
           }}
         />
-        <Button onClick={handleModal} className={""} text={"PLAY"} />
+        <Button
+          onClick={handleModal}
+          className={"leaderboard-play-btn"}
+          text={"PLAY"}
+        />
       </div>
     </section>
   );

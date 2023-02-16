@@ -7,7 +7,7 @@ import GameOverModal from "../GameOverModal";
 function Banner() {
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleTimerComplete = () => {
+  const handleTimerComplete = (): void => {
     setShowModal(true);
   };
 

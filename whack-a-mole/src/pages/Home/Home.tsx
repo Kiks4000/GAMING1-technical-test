@@ -4,14 +4,14 @@ import PlayerNameModal from "../../components/PlayerNameModal";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const navigate = useNavigate();
-
   const [showMole, setShowMole] = useState<boolean>(Math.random() > 0.5);
   const [showMole2, setShowMole2] = useState<boolean>(Math.random() > 0.5);
   const [showMole3, setShowMole3] = useState<boolean>(Math.random() > 0.5);
   const [showMole4, setShowMole4] = useState<boolean>(Math.random() > 0.5);
 
   const [showModal, setShowModal] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   const hole = require("../../assets/images/Hole.png");
   const mole = require("../../assets/images/Mole.png");
@@ -49,10 +49,14 @@ function Home() {
         {showMole4 ? <img src={hole} alt="" /> : <img src={mole} alt="" />}
       </div>
       <div className="home-btn-container">
-        <Button onClick={handleModal} className={""} text={"PLAY"} />
+        <Button
+          onClick={handleModal}
+          className={"home-play-btn"}
+          text={"PLAY"}
+        />
         <Button
           onClick={() => navigate("/leaderboard")}
-          className={""}
+          className={"home-leaderboard-btn"}
           text={"LEADERBOARD"}
         />
       </div>

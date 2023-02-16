@@ -6,20 +6,20 @@ import { useDispatch } from "react-redux";
 import { setName } from "../../reducers/game";
 
 function PlayerNameModal({ showModal, setShowModal }: any) {
+  const [playerName, setPlayerName] = useState<string>("");
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const [playerName, setPlayerName] = useState<string>("");
 
   const handlePlayerName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPlayerName(e.target.value);
   };
 
-  const handleModal = () => {
+  const handleModal = (): void => {
     setShowModal(!showModal);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (): void => {
     dispatch(setName(playerName ? playerName : "Player 1"));
     navigate("/game");
   };
@@ -43,7 +43,11 @@ function PlayerNameModal({ showModal, setShowModal }: any) {
             }
           }}
         />
-        <Button onClick={handleSubmit} className={""} text={"SUBMIT"} />
+        <Button
+          onClick={handleSubmit}
+          className={"playerName-submit-btn"}
+          text={"SUBMIT"}
+        />
       </div>
     </div>
   );
