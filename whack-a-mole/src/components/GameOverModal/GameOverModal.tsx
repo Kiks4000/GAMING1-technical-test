@@ -9,7 +9,7 @@ function GameOverModal() {
   const navigate = useNavigate();
 
   const name = store.getState().game.name || "Player 1";
-  const score = store.getState().game.score;
+  const score = store.getState().game.score || 1;
 
   async function handleHome() {
     await postLeaderboard({ name, score });
