@@ -79,3 +79,14 @@ LEADERBOARD_LIMIT=10
 ### Frontend -
 
 1. Unfortunatlly, I didn't have time to write the tests for the frontend yet
+
+## Future improvements
+
+- Add tests for the frontend
+- Add a button to reset the leaderboard
+- Add a button to set the game in pause
+- Add a button to restart the game
+
+## Author
+
+[Kiks4000](https://github.com/Kiks4000) for [GAMING1](https://www.gaming1.com/)
