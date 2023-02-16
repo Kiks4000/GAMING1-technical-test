@@ -1,11 +1,13 @@
 import React from "react";
+import Banner from "../../components/Banner";
+import GameField from "../../components/GameField";
 
 function Game() {
   return (
-    <div>
-      <h1>Game</h1>
-      <a href="/">Home</a>
-    </div>
+    <section className="game-page">
+      <Banner />
+      <GameField />
+    </section>
   );
 }
 

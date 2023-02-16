@@ -21,7 +21,6 @@ function LeaderboardPage() {
     });
   }, []);
 
-  console.log(leaderboard);
   return (
     <section className="leaderboard-section">
       {showModal ? (
@@ -53,7 +52,7 @@ function LeaderboardPage() {
       <div className="leaderboard-btn-container">
         <Button
           className="leaderboard-btn"
-          text="Back to Home"
+          text="Back Home"
           onClick={() => {
             navigate("/");
           }}

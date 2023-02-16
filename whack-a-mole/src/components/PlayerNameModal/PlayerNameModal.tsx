@@ -20,7 +20,7 @@ function PlayerNameModal({ showModal, setShowModal }: any) {
   };
 
   const handleSubmit = () => {
-    dispatch(setName(playerName));
+    dispatch(setName(playerName ? playerName : "Player 1"));
     navigate("/game");
   };
 
@@ -37,6 +37,11 @@ function PlayerNameModal({ showModal, setShowModal }: any) {
           value={playerName}
           onChange={handlePlayerName}
           placeholder="Please enter your name"
+          onKeyUp={(key) => {
+            if (key.key === "Enter") {
+              handleSubmit();
+            }
+          }}
         />
         <Button onClick={handleSubmit} className={""} text={"SUBMIT"} />
       </div>

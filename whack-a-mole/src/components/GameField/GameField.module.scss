@@ -1,0 +1,20 @@
+.game-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  .hole-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50%;
+    height: 50%;
+
+    .game-field__mole {
+      cursor: pointer;
+    }
+  }
+}

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
 import PlayerNameModal from "../../components/PlayerNameModal";
 import { useNavigate } from "react-router-dom";
+import { setScore, setName } from "../../reducers/game";
+import { store } from "../../store";
 
 function Home() {
   const navigate = useNavigate();
@@ -12,6 +14,9 @@ function Home() {
   const [showMole4, setShowMole4] = useState<boolean>(Math.random() > 0.5);
 
   const [showModal, setShowModal] = useState<boolean>(false);
+
+  const hole = require("../../assets/images/Hole.png");
+  const mole = require("../../assets/images/Mole.png");
 
   const toggleMole = (): void => {
     setShowMole(!showMole);
@@ -40,26 +45,10 @@ function Home() {
         <h1 className="home-title">whack-a-mole</h1>
       </div>
       <div className="home-mole-container">
-        {showMole ? (
-          <img src={require("../../assets/images/Hole.png")} alt="" />
-        ) : (
-          <img src={require("../../assets/images/Mole.png")} alt="" />
-        )}
-        {showMole2 ? (
-          <img src={require("../../assets/images/Hole.png")} alt="" />
-        ) : (
-          <img src={require("../../assets/images/Mole.png")} alt="" />
-        )}
-        {showMole3 ? (
-          <img src={require("../../assets/images/Hole.png")} alt="" />
-        ) : (
-          <img src={require("../../assets/images/Mole.png")} alt="" />
-        )}
-        {showMole4 ? (
-          <img src={require("../../assets/images/Hole.png")} alt="" />
-        ) : (
-          <img src={require("../../assets/images/Mole.png")} alt="" />
-        )}
+        {showMole ? <img src={hole} alt="" /> : <img src={mole} alt="" />}
+        {showMole2 ? <img src={hole} alt="" /> : <img src={mole} alt="" />}
+        {showMole3 ? <img src={hole} alt="" /> : <img src={mole} alt="" />}
+        {showMole4 ? <img src={hole} alt="" /> : <img src={mole} alt="" />}
       </div>
       <div className="home-btn-container">
         <Button onClick={handleModal} className={""} text={"PLAY"} />

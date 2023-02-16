@@ -56,15 +56,10 @@
         .leaderboard-list-item-name,
         .leaderboard-list-item-score {
           font-size: 2.5em;
+          font-family: $regular-font;
           color: $white;
         }
       }
     }
-  }
-
-  .leaderboard-btn-container {
-    display: flex;
-    height: 10%;
-    width: 100%;
   }
 }
