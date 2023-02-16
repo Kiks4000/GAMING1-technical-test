@@ -1,5 +1,6 @@
 @import "./settings.module.scss";
 @import "./variable.module.scss";
+
 @import "../components/Button/Button.module.scss";
 @import "../components/Banner/Banner.module.scss";
 @import "../components/Name/Name.module.scss";
@@ -8,7 +9,9 @@
 @import "../components/PlayerNameModal/PlayerNameModal.module.scss";
 @import "../components/GameOverModal/GameOverModal.module.scss";
 @import "../components/GameField/GameField.module.scss";
+
 @import "../pages/Home/Home.module.scss";
+@import "../pages/Game/Game.module.scss";
 @import "../pages/Leaderboard/Leaderboard.module.scss";
 
 body {

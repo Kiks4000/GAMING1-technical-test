@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Timer: React.FC<Props> = ({ onTimerComplete }) => {
-  const [timeLeft, setTimeLeft] = useState(120);
+  const [timeLeft, setTimeLeft] = useState(12000);
 
   useEffect(() => {
     if (timeLeft === 0) {

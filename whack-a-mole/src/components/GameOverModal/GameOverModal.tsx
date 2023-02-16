@@ -8,7 +8,7 @@ import { postLeaderboard } from "../../api/routes";
 function GameOverModal() {
   const navigate = useNavigate();
 
-  const name = store.getState().game.name;
+  const name = store.getState().game.name || "Player 1";
   const score = store.getState().game.score;
 
   async function handleHome() {

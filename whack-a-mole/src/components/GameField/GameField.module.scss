@@ -6,15 +6,20 @@
   height: 100vh;
 
   .hole-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 50%;
-    height: 50%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 5rem;
+    grid-row-gap: 5rem;
+    align-items: self-end;
 
     .game-field__mole {
       cursor: pointer;
+    }
+
+    .game-field__hole,
+    .game-field__mole {
+      align-self: last baseline;
     }
   }
 }

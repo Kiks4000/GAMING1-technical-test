@@ -1,46 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setScore } from "../../reducers/game";
 import { store } from "../../store";
 
+import backgroundImage from "../../assets/images/Background.jpg";
+import holeImage from "../../assets/images/Hole.png";
+import moleImage from "../../assets/images/Mole.png";
+
 function GameField() {
   const dispatch = useDispatch();
-
-  const backgroundImage = require("../../assets/images/Background.jpg");
-  const hole = require("../../assets/images/Hole.png");
-  const mole = require("../../assets/images/Mole.png");
-
   const score = store.getState().game.score;
 
-  const [molePosition, setMolePosition] = React.useState<number>(0);
-  const [moleIsVisible, setMoleIsVisible] = React.useState<boolean>(false);
+  const [molePosition, setMolePosition] = useState(0);
+  const [moleIsVisible, setMoleIsVisible] = useState(false);
 
   const handleMoleClick = () => {
-    setMoleIsVisible(false);
     dispatch(setScore(score + 10));
   };
 
-  const algorithm = () => {
-    if (moleIsVisible) {
-      return (
-        <div
-          className="game-field__mole"
-          id={molePosition.toString()}
-          onClick={handleMoleClick}
-        >
-          <img src={mole} alt="" />
-        </div>
-      );
-    }
+  const visibleMole = () => {
+    return (
+      <div
+        className="game-field__mole"
+        id={molePosition.toString()}
+        onClick={handleMoleClick}
+      >
+        <img src={moleImage} alt="mole" />
+      </div>
+    );
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
-      setMolePosition(Math.floor(Math.random() * 12));
+      setMolePosition(Math.floor(Math.random() * 12) + 1);
       setMoleIsVisible(true);
     }, 1000);
     return () => clearInterval(interval);
   }, []);
+
   return (
     <div
       className="game-field"
@@ -52,90 +49,18 @@ function GameField() {
       }}
     >
       <div className="hole-container">
-        {molePosition === 1 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="1">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 2 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="2">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 3 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="3">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 4 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="4">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 5 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="5">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 6 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="6">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 7 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="7">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 8 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="8">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 9 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="9">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 10 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="10">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 11 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="11">
-            <img src={hole} alt="" />
-          </div>
-        )}
-        {molePosition === 12 ? (
-          algorithm()
-        ) : (
-          <div className="game-field__hole" id="12">
-            <img src={hole} alt="" />
-          </div>
-        )}
+        {[...Array(12)].map((_, index) => {
+          const isMolePosition = index + 1 === molePosition;
+          return (
+            <div className="game-field__hole" key={index} id={index.toString()}>
+              {isMolePosition && moleIsVisible ? (
+                visibleMole()
+              ) : (
+                <img src={holeImage} alt="hole" />
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
