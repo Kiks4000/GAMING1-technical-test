@@ -1,0 +1,65 @@
+@import "../../style/variable.module.scss";
+
+.leaderboard-section {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  height: 100vh;
+  width: 100vw;
+
+  .leaderboard-title-container {
+    height: 40%;
+    width: 100%;
+
+    .leaderboard-title {
+      font-family: $title-font;
+      font-size: 20rem;
+      color: $brown;
+      text-shadow: 0 0 0.5rem $white;
+    }
+  }
+
+  .leaderboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    padding: 20px;
+
+    .leaderboard-list-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      gap: 2rem;
+
+      .leaderboard-list-firstHalf {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .leaderboard-list-secondHalf {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .leaderboard-list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: $brown;
+        margin-bottom: 10px;
+        border-radius: 5px;
+
+        .leaderboard-list-item-name,
+        .leaderboard-list-item-score {
+          font-size: 2.5em;
+          font-family: $regular-font;
+          color: $white;
+        }
+      }
+    }
+  }
+}
