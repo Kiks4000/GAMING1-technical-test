@@ -17,4 +17,9 @@
 body {
   background-color: $bg-color;
   overflow: hidden;
+
+  // add a media query for disable the site on mobile
+  @media (max-width: 1200px) {
+    display: none;
+  }
 }
