@@ -1,0 +1,10 @@
+@import "../../style/variable.module.scss";
+
+.timer-banner {
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: $regular-font;
+    color: $white;
+  }
+}
