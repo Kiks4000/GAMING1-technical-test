@@ -42,3 +42,7 @@ describe("Leaderboard API", () => {
       });
   });
 });
+
+after(() => {
+  process.exit();
+});
